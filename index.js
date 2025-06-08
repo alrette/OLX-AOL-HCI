@@ -159,19 +159,52 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupInfiniteScrollJS(trackSelector, speed = 1) {
         const track = document.querySelector(trackSelector);
         if (!track || track.children.length === 0) return;
-        const originalItems = Array.from(track.children);
-        originalItems.forEach(item => track.appendChild(item.cloneNode(true)));
-        let oneSetWidth = track.scrollWidth / 2;
+
+        // Clear existing clones to prevent excessive duplication on resize/re-init
+        let originalItems = [];
+        // Check if track has data attribute indicating it's already set up
+        if (!track.dataset.infiniteScrollInitialized) {
+            originalItems = Array.from(track.children);
+            // Append clones until the track content is at least double the original length
+            let currentContentWidth = track.scrollWidth;
+            const originalContentWidth = track.scrollWidth;
+            while (currentContentWidth < originalContentWidth * 2) {
+                originalItems.forEach(item => track.appendChild(item.cloneNode(true)));
+                currentContentWidth = track.scrollWidth;
+            }
+            track.dataset.infiniteScrollInitialized = 'true'; // Mark as initialized
+        } else {
+            // If already initialized, just get current children and recalculate original width
+            originalItems = Array.from(track.children).slice(0, track.children.length / 2); // Assuming duplicates were exactly 1:1
+        }
+        
+        let oneSetWidth = 0;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        originalItems.forEach(item => {
+            oneSetWidth += item.offsetWidth + gap;
+        });
+        // Remove the last gap as it's not between items after the last one
+        if (originalItems.length > 0) {
+            oneSetWidth -= gap;
+        }
+
         let currentPosition = 0;
         let animationFrameId;
+
         function animateScroll() {
             currentPosition -= speed;
-            if (Math.abs(currentPosition) >= oneSetWidth) currentPosition = 0;
+            // When the current position has moved by the exact width of one set of original items
+            if (Math.abs(currentPosition) >= oneSetWidth) {
+                currentPosition = 0; // Seamlessly jump back to the start
+            }
             track.style.transform = `translateX(${currentPosition}px)`;
             animationFrameId = requestAnimationFrame(animateScroll);
         }
-        track.style.animation = 'none';
-        animateScroll();
+
+        track.style.animation = 'none'; // Ensure no CSS animation interferes
+        animateScroll(); // Start the JavaScript animation
+
+        // Pause on hover
         track.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrameId));
         track.addEventListener('mouseleave', () => animationFrameId = requestAnimationFrame(animateScroll));
     }
@@ -185,6 +218,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Responsive adjustments
     window.addEventListener('resize', () => {
+        // Re-initialize carousels to account for new widths and potential refilling of duplicates
+        setupInfiniteScrollJS('.categories-grid', 0.5);
+        setupInfiniteScrollJS('.payment-track', 0.75);
+        setupInfiniteScrollJS('.delivery-track', 0.6);
         calculatePromoCardStep();
         updatePromoCarousel();
     });

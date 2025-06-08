@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title> 
+    <link rel="icon" href="../images/olx-logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    
+    <main class="checkout-container">
+        
+        <div class="checkout-details">
+            <section class="cart-section">
+                <div class="section-header">
+                    <h2>Shopping Cart</h2>
+                    <span class="item-count" id="cartItemCount">1 item</span>
+                </div>
+                
+                <div class="cart-items">
+                    <div class="store-group">
+                        <div class="store-header">
+                            <input type="checkbox" id="select-all-store-nills" class="checkbox store-select-all" checked>
+                            <label for="select-all-store-nills" class="store-name">NILL's Store</label>
+                        </div>
+                        
+                        <div class="cart-item">
+                            <input type="checkbox" id="item1" class="checkbox item-checkbox" checked>
+                            <div class="item-image">
+                                <img src="/images/leobogreaper.jpeg" alt="LEOBOG Reaper Linear Switch" onerror="this.onerror=null; this.src='https://placehold.co/80x80/cccccc/333333?text=Reaper';">
+                            </div>
+                            <div class="item-details">
+                                <h3>LEOBOG Reaper Linear Switch</h3>
+                                <div class="item-price">
+                                    <span class="current-price" data-price="1779">Rp1.779</span>
+                                </div>
+                                <div class="quantity-controls">
+                                    <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
+                                    <input type="number" class="quantity" value="1" min="1">
+                                    <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="address-section">
+                <div class="section-header">
+                    <h2>Delivery Address</h2>
+                    <button class="change-address-btn">Change Address</button>
+                </div>
+                
+                <div class="address-card">
+                    <div class="address-type">Home</div>
+                    <div class="recipient-info">
+                        <strong id="recipientName">Lionel Messi</strong> (<span id="recipientPhone">081234567890</span>)
+                    </div>
+                    <div class="address-details" id="recipientAddress">
+                        Jl. Raya Kb. Jeruk No.27, RT.1/RW.9, Kemanggisan, Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530
+                    </div>
+                </div>
+            </section>
+        </div> 
+
+        <div class="sidebar">
+            <section class="delivery-section">
+                <div class="section-header">
+                    <h2>Select Delivery Type</h2>
+                </div>
+                <div class="delivery-options">
+                    <select class="delivery-select" id="deliveryType">
+                        <option value="0" data-cost="0">Regular (3-5 days) - Free</option>
+                        <option value="15000" data-cost="15000">Next Day (1 day) - Rp15.000</option>
+                        <option value="25000" data-cost="25000">Same Day (4-8 hours) - Rp25.000</option>
+                        <option value="50000" data-cost="50000">Instant (1-2 hours) - Rp50.000</option>
+                    </select>
+                </div>
+            </section>
+
+            <aside class="order-summary">
+                <div class="summary-header">
+                    <h3>Order Summary</h3>
+                </div>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Subtotal (<span id="summaryItemCount">1</span> items)</span>
+                        <span id="summarySubtotal">Rp1.779</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping Cost</span>
+                        <span id="summaryShippingCost">Rp0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Service Fee</span>
+                        <span id="summaryServiceFee">Rp1.000</span> 
+                    </div>
+                    <div class="summary-row voucher-discount-row" style="display: none;">
+                        <span id="voucherDiscountLabel">Voucher</span>
+                        <span id="summaryVoucherDiscount">-Rp0</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="summaryTotal">Rp2.779</span>
+                    </div>
+                </div>
+                <div class="voucher-section">
+                    <button class="voucher-btn" id="useVoucherBtn">
+                        <span>Use Voucher for savings!</span>
+                        <span class="arrow" id="voucherArrow">></span>
+                    </button>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    Select Payment Method
+                </button>
+            </aside>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <div class="modal-overlay" id="voucherModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Voucher</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="voucher-list">
+                <label class="voucher-option">
+                    <input type="radio" name="voucher" value="10_percent" data-type="percent" data-value="10">
+                    <div class="voucher-details"><strong>Diskon 10%</strong><span>Min. spend Rp50.000, up to Rp10.000</span></div>
+                </label>
+                <label class="voucher-option">
+                    <input type="radio" name="voucher" value="5000_fixed" data-type="fixed" data-value="5000">
+                    <div class="voucher-details"><strong>Potongan Rp5.000</strong><span>No min. spend</span></div>
+                </label>
+            </div>
+            <button class="confirm-payment-btn" id="applyVoucherBtn">Apply Voucher</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="addressModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Delivery Address</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="addressForm">
+                <div class="form-group"><label for="inputRecipientName">Recipient Name</label><input type="text" id="inputRecipientName" required></div>
+                <div class="form-group"><label for="inputRecipientPhone">Phone Number</label><input type="tel" id="inputRecipientPhone" required></div>
+                <div class="form-group"><label for="inputRecipientAddress">Full Address</label><textarea id="inputRecipientAddress" rows="4" required></textarea></div>
+                <button type="submit" class="confirm-payment-btn">Save Address</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="processingModal">
+        <div class="modal-content processing-modal">
+            <div class="spinner"></div>
+            <h3>Processing your order...</h3>
+            <p>Please wait a moment.</p>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Choose Payment Method</h3>
+                <button class="close-btn" aria-label="Close payment modal">&times;</button>
+            </div>
+            <div class="payment-methods">
+                <div class="payment-category">
+                    <h4>QRIS</h4>
+                    <p class="payment-limit">Min. Transaction Rp1, Max. Transaction Rp10.000.000</p>
+                    <div class="payment-option">
+                        <input type="radio" id="qris" name="payment_method" value="qris">
+                        <label for="qris" class="payment-label">
+                            <div class="payment-logo qris-logo"><img src="../images/qris.png" alt="QRIS Logo"></div>
+                            <span>QRIS</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="payment-category">
+                    <h4>E-Wallet</h4>
+                    <p class="payment-limit">Min. Transaction Rp1</p>
+                    <div class="payment-option">
+                        <input type="radio" id="shopee" name="payment_method" value="shopee">
+                        <label for="shopee" class="payment-label">
+                            <div class="payment-logo shopee-logo"><img src="../images/spay.png" alt="ShopeePay Logo"></div>
+                            <span>ShopeePay E-Wallet</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="ovo" name="payment_method" value="ovo">
+                        <label for="ovo" class="payment-label">
+                            <div class="payment-logo ovo-logo"><img src="../images/ovo.png" alt="OVO Logo"></div>
+                            <span>OVO E-Wallet</span>
+                        </label>
+                    </div>
+                </div>
+                 <div class="payment-category">
+                    <h4>Virtual Account</h4>
+                    <div class="payment-option">
+                        <input type="radio" id="bca_va" name="payment_method" value="bca_va">
+                        <label for="bca_va" class="payment-label">
+                            <div class="payment-logo bca-logo"><img src="../images/bca.png" alt="BCA Logo"></div>
+                            <span>BCA Virtual Account</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="confirm-payment-btn" id="confirmPaymentBtn">Confirm Payment</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal-content confirmation-modal">
+            <div class="modal-header">
+                <h3>Confirm Your Payment</h3>
+                 <button class="close-btn" aria-label="Close confirmation modal">&times;</button>
+            </div>
+            <p>You are about to pay the total amount for your order.</p>
+            <div class="order-number" id="confirmationTotal"></div>
+            <p id="confirmationPaymentMethod"></p>
+            <div class="confirmation-actions">
+                 <button class="continue-btn cancel" id="cancelFinalPaymentBtn">Cancel</button>
+                 <button class="continue-btn" id="confirmFinalPaymentBtn">Pay Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content confirmation-modal">
+            <div class="confirmation-icon">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#2980B9"/><path fill="none" stroke="#FFF" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+            </div>
+            <h3>Order Confirmed!</h3>
+            <p>Your order has been successfully placed.</p>
+            <button class="continue-btn" onclick="window.location.href='index.html'">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

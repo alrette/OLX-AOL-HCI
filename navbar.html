@@ -1,0 +1,250 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-logo">
+            <a href="landing_page.html"><img src="/images/olx-logo.png" alt="OLX" class="logo-img"></a>
+        </div>
+
+        <div class="navbar-search">
+            <div class="search-container">
+                <input type="text" placeholder="Cari di OLX..." class="search-input" id="searchInput">
+                
+                <button class="search-btn" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="navbar-auth">
+            <button class="btn btn-register">
+                <i class="fas fa-user"></i>
+                Daftar
+            </button>
+            <button class="btn btn-sell">
+                <i class="fas fa-plus"></i>
+                Jual
+            </button>
+        </div>
+
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-secondary">
+        <div class="navbar-container">
+            <div class="secondary-nav">
+                <div class="dropdown categories-dropdown">
+                    <button class="dropdown-toggle">
+                        <i class="fas fa-th-large"></i>
+                        Semua Kategori
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu categories-menu">
+                        <div class="mega-menu-container">
+                            <div class="main-categories">
+                                <div class="main-category-item" data-category="elektronik">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Elektronik</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <div class="main-category-item" data-category="rumah-tangga">
+                                    <i class="fas fa-home"></i>
+                                    <span>Rumah Tangga</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <div class="main-category-item" data-category="kendaraan">
+                                    <i class="fas fa-car"></i>
+                                    <span>Kendaraan</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                 <div class="main-category-item" data-category="fashion-pria">
+                                    <i class="fas fa-tshirt"></i>
+                                    <span>Fashion Pria</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <div class="main-category-item" data-category="olahraga">
+                                    <i class="fas fa-futbol"></i>
+                                    <span>Olahraga</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="subcategories-panel">
+                                <div class="subcategory-content" id="elektronik">
+                                    <div class="subcategory-group">
+                                        <h4>Handphone & Tablet</h4>
+                                        <ul>
+                                            <li>Handphone (iPhone, Samsung, etc.)</li>
+                                            <li>Tablet (Huawei, iPad, etc.)</li>
+                                            <li>Aksesoris Tablet</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Komputer & Aksesoris</h4>
+                                        <ul>
+                                            <a href="search.html"><li>Keyboard (Switches, components)</li></a>
+                                            <li>Mouse</li>
+                                            <li>Monitor</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="subcategory-content" id="rumah-tangga">
+                                    <div class="subcategory-group">
+                                        <h4>Peralatan Masak</h4>
+                                        <ul>
+                                            <li>Panci & Wajan</li>
+                                            <li>Blender & Mixer</li>
+                                            <li>Peralatan Baking</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Alat Kebersihan</h4>
+                                        <ul>
+                                            <li>Vacuum Cleaner</li>
+                                            <li>Pembersih Lantai</li>
+                                            <li>Lap & Spons</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Dekorasi Rumah</h4>
+                                        <ul>
+                                            <li>Lampu Hias</li>
+                                            <li>Hiasan Dinding</li>
+                                            <li>Karpet</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="subcategory-content" id="kendaraan">
+                                    <div class="subcategory-group">
+                                        <h4>Mobil</h4>
+                                        <ul>
+                                            <li>Mobil Bekas</li>
+                                            <li>Aksesoris Mobil</li>
+                                            <li>Suku Cadang Mobil</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Motor</h4>
+                                        <ul>
+                                            <li>Motor Bekas</li>
+                                            <li>Aksesoris Motor</li>
+                                            <li>Helm</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                 <div class="subcategory-content" id="fashion-pria">
+                                    <div class="subcategory-group">
+                                        <h4>Atasan Pria</h4>
+                                        <ul>
+                                            <li>Kaos</li>
+                                            <li>Kemeja</li>
+                                            <li>Polo Shirt</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Bawahan Pria</h4>
+                                        <ul>
+                                            <li>Celana Panjang</li>
+                                            <li>Celana Pendek</li>
+                                            <li>Celana Jeans</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Outerwear</h4>
+                                        <ul>
+                                            <li>Jaket</li>
+                                            <li>Hoodie & Sweatshirt</li>
+                                            <li>Vest</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="subcategory-content" id="olahraga">
+                                    <div class="subcategory-group">
+                                        <h4>Alat Fitness</h4>
+                                        <ul>
+                                            <li>Dumbbell</li>
+                                            <li>Treadmill</li>
+                                            <li>Yoga Mat</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Sepatu Olahraga</h4>
+                                        <ul>
+                                            <li>Sepatu Lari</li>
+                                            <li>Sepatu Futsal</li>
+                                            <li>Sepatu Basket</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subcategory-group">
+                                        <h4>Pakaian Olahraga</h4>
+                                        <ul>
+                                            <li>Jersey</li>
+                                            <li>Training Pants</li>
+                                            <li>Sport Bra</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item" onclick="window.location.href='promodankupon.html'">
+                    <i class="fas fa-percent"></i>
+                    Promo
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    News
+                </div>
+                <div class="nav-item download-app">
+                    <i class="fas fa-mobile-alt"></i>
+                    Download Aplikasi OLX
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-search">
+                <input type="text" placeholder="Cari di OLX..." class="search-input">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="mobile-nav-items">
+                <a href="#" class="mobile-nav-item has-submenu">
+                    <i class="fas fa-th-large"></i>
+                    Semua Kategori
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="mobile-submenu">
+                    </div>
+                 <a href="promodankupon.html" class="mobile-nav-item">
+                    <i class="fas fa-percent"></i>
+                    Promo
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    News
+                </a>
+                <a href="#" class="mobile-nav-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    Download App
+                </a>
+            </div>
+            <div class="mobile-auth">
+                <button class="btn btn-register">
+                    <i class="fas fa-user"></i>
+                    Daftar
+                </button>
+                <button class="btn btn-sell">
+                    <i class="fas fa-plus"></i>
+                    Jual
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

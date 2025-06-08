@@ -1,0 +1,159 @@
+/* checkout.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.5;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 340px; 
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.checkout-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 15px;
+    gap: 15px;
+}
+
+.cart-section, .address-section, .delivery-section, .order-summary {
+    padding: 12px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.order-summary { position: static; }
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EAECEE;
+}
+
+h2, h3 { color: #1A5276; font-weight: 600; }
+h2 { font-size: 1.1rem; }
+h3 { font-size: 1.1rem; }
+
+/* --- Cart Styles --- */
+.item-count { font-size: 0.85rem; }
+.store-group { border: 1px solid #f0f0f0; border-radius: 6px; padding: 10px; margin-bottom: 10px; }
+.store-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.store-name { font-weight: 600; color: #1A5276; font-size: 0.9rem; }
+.cart-item { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+.cart-item:last-child { border-bottom: none; }
+.checkbox { width: 16px; height: 16px; accent-color: #2980B9; cursor: pointer; }
+.item-image img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; }
+.item-details h3 { font-size: 0.85rem; font-weight: 500; margin-bottom: 4px; }
+.item-price { margin-bottom: 6px; }
+.current-price { font-weight: 600; font-size: 0.95rem; }
+.quantity-controls { display: flex; align-items: center; gap: 8px; }
+.qty-btn { width: 26px; height: 26px; border: 1px solid #2980B9; background: white; color: #2980B9; border-radius: 6px; cursor: pointer; transition: background-color 0.2s; }
+.qty-btn:hover { background: #2980B9; color: white; }
+input.quantity { width: 40px; text-align: center; border: 1px solid #ccc; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;}
+input.quantity::-webkit-outer-spin-button, input.quantity::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* --- Address & Delivery --- */
+.change-address-btn { background: none; border: none; color: #2980B9; font-weight: 500; cursor: pointer; font-size: 0.85rem; }
+.address-card { background: #f8f9fa; border-radius: 6px; padding: 10px; border-left: 3px solid #85C1E9; margin-top: 10px; }
+.address-type { background: #85C1E9; color: #1A5276; padding: 2px 5px; border-radius: 4px; font-size: 0.7rem; font-weight: 500; display: inline-block; margin-bottom: 5px; }
+.recipient-info { margin-bottom: 4px; font-size: 0.85rem; color: #1A5276; }
+.address-details { color: #666; font-size: 0.8rem; line-height: 1.3; }
+.delivery-select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; }
+
+/* --- Order Summary --- */
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem; }
+.summary-row.total { font-weight: 600; font-size: 1rem; margin-top: 5px; }
+.voucher-discount-row { color: #27AE60; font-weight: 500; }
+.summary-divider { height: 1px; background: #e0e0e0; margin: 8px 0; }
+.voucher-section { margin: 10px 0; }
+.voucher-btn { width: 100%; background: #F7DC6F; border: none; padding: 9px 12px; border-radius: 8px; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.checkout-btn { width: 100%; background: #2980B9; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; }
+
+/* --- MODAL STYLES (COMPLETE) --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 1000; }
+.modal-overlay.active { display: flex; }
+.modal-content { background: white; border-radius: 12px; padding: 20px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #EAECEE; }
+.close-btn { background: none; border: none; font-size: 1.7rem; cursor: pointer; color: #999; }
+.confirm-payment-btn { width: 100%; background: #2980B9; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; margin-top: 10px; }
+
+/* ✨ FIX: Restored original Payment Modal Styles */
+/* Hide native radio circle */
+.payment-option input[type="radio"] {
+  display: none;
+}
+
+.payment-category { margin-bottom: 20px; }
+.payment-category h4 { color: #1A5276; margin-bottom: 4px; }
+.payment-limit { color: #666; font-size: 0.8rem; margin-bottom: 10px; }
+.payment-option { margin-bottom: 10px; }
+.payment-label { display: flex; align-items: center; gap: 12px; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+.payment-label:hover { border-color: #85C1E9; }
+input[type="radio"]:checked + .payment-label { border-color: #2980B9; background: #f0f8ff; }
+.payment-logo { width: 40px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+.payment-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* ✨ FIX: Restored original Confirmation & Success Modal Styles */
+.confirmation-modal { text-align: center; }
+.confirmation-icon { width: 50px; height: 50px; margin: 0 auto 12px; }
+.confirmation-modal h3 { color: #1A5276; margin-bottom: 10px; }
+.confirmation-modal p { color: #666; margin-bottom: 12px; font-size: 0.9rem; }
+.order-number { background: #f8f9fa; padding: 8px; border-radius: 8px; font-weight: 600; color: #1A5276; margin-bottom: 15px; }
+.confirmation-actions { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+.continue-btn { background: #2980B9; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
+.continue-btn.cancel { background-color: #e0e0e0; color: #333; }
+.continue-btn.cancel:hover { background-color: #bdbdbd; }
+
+/* --- Styles for NEW Modals --- */
+.voucher-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+.voucher-option { display: flex; align-items: center; gap: 10px; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; }
+.voucher-option input[type="radio"] { flex-shrink: 0; }
+.voucher-details strong { display: block; color: #1A5276; }
+.voucher-details span { font-size: 0.8rem; color: #666; }
+
+#addressForm .form-group { margin-bottom: 15px; }
+#addressForm label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 5px; }
+#addressForm input, #addressForm textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; font-family: 'DM Sans', sans-serif; }
+#addressForm textarea { resize: vertical; }
+
+.processing-modal { text-align: center; padding: 40px 20px; }
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2980B9;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .checkout-container { grid-template-columns: 1fr; }
+    .sidebar { position: static; order: -1; margin-bottom: 15px; }
+}

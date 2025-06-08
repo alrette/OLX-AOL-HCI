@@ -1,0 +1,114 @@
+/* footer.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- Footer Base Styles --- */
+.olx-footer {
+    background-color: #20232A;
+    color: #E0E0E0;
+    padding: 50px 0 0;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.olx-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* --- Footer Sections (Columns) --- */
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* --- First Column: Logo Section --- */
+.logo-section .footer-logo { max-width: 100px; margin-bottom: 15px; }
+.logo-description { font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; }
+.member-info .member-text { font-size: 0.9rem; background-color: #333842; padding: 5px 10px; border-radius: 5px; }
+
+/* --- Second Column: OLX Links --- */
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-link { color: #E0E0E0; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease, padding-left 0.3s ease; }
+.footer-link:hover { color: #FFFFFF; padding-left: 5px; text-decoration: underline; }
+
+/* --- Third Column: Contact Info --- */
+.contact-info .contact-item { display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 0.9rem; }
+.contact-icon { font-size: 1.2rem; margin-right: 12px; color: #FFFFFF; width: 20px; text-align: center; }
+.contact-text { line-height: 1.6; }
+
+/* ✨ FIX: New style to make the location link look correct */
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.contact-link:hover .contact-text {
+    color: #FFFFFF;
+}
+
+
+/* --- Fourth Column: Social & App Downloads --- */
+.social-media { display: flex; gap: 15px; margin-bottom: 25px; }
+.social-link .social-icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background-color: #333842;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+/* ✨ FIX: Style for the new images inside icons */
+.social-icon img {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    object-fit: contain;
+}
+
+.social-link:hover .social-icon { transform: scale(1.1) translateY(-3px); background-color: #2980B9; }
+
+.app-downloads { display: flex; flex-direction: column; gap: 12px; }
+.app-button {
+    display: flex; align-items: center; padding: 8px 15px;
+    background-color: #333842; border-radius: 6px;
+    text-decoration: none; color: #FFFFFF;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.app-button:hover { background-color: #000000; transform: scale(1.03); }
+.app-button .app-icon { width: 24px; height: 24px; margin-right: 10px; }
+/* ✨ FIX: Style for the new images inside icons */
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.app-button .app-text { font-size: 0.9rem; }
+
+/* --- Footer Bottom (Copyright) --- */
+.footer-bottom { text-align: center; padding: 20px; margin-top: 20px; border-top: 1px solid #333842; }
+.copyright { margin: 0; font-size: 0.8rem; color: #A0A0A0; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .footer-container { flex-direction: column; padding: 0 30px; }
+    .footer-section { min-width: 100%; margin-bottom: 40px; }
+    .olx-footer { padding-top: 40px; }
+}
